@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webikrish | Front-End Developer</title>
+    <title>Webikrish </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="icon" type="image/png" sizes="128×128" href="logo-webikrish.png">
     <style>
         :root {
             --primary: #00f5ff;
@@ -2372,7 +2373,7 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo disney-font">WEBKRISH</div>
+            <div class="footer-logo disney-font">WEBIKRISH</div>
             <div class="footer-links">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -2390,7 +2391,7 @@
                 <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <div class="copyright">
-                &copy; 2023 Webkrish. All Rights Reserved.
+                &copy; 2023 Webikrish. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -2589,6 +2590,31 @@
                 orbit.appendChild(sphere);
             });
         }
+
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    // Get form values
+    const name = this.querySelector('input[placeholder="Your Name"]').value;
+    const email = this.querySelector('input[placeholder="Your Email"]').value;
+    const subject = this.querySelector('input[placeholder="Subject"]').value;
+    const message = this.querySelector('textarea[placeholder="Your Message"]').value;
+
+    // Construct WhatsApp message
+    const whatsappMessage = `Hello! I am ${name} (${email}).\nSubject: ${subject}\nMessage: ${message}`;
+
+    // Replace spaces with URL encoding
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+
+    // Your WhatsApp number with country code (replace with your number)
+    const whatsappNumber = "916383003253";
+
+    // Open WhatsApp URL
+    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, "_blank");
+
+    // Optional: reset the form after sending
+    this.reset();
+});
 
         // Custom Particle Cursor
         const cursor = document.querySelector('.cursor');
